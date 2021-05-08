@@ -3,8 +3,8 @@ version: "3"
 
 services:
   strapi:
-    container_name: evodim-strapi-azure
-    image: evodim/strapi-azure
+    container_name: strapi-azure-sample
+    image: strapi/strapi-azure
     environment:
       - DATABASE_CLIENT=${DATABASE_CLIENT}
       - DATABASE_HOST=${DATABASE_HOST}
