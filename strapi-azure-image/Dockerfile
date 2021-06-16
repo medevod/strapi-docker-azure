@@ -3,7 +3,6 @@ WORKDIR /app
 RUN yarn global add strapi
 ENV DATABASE_CLIENT "mongo"
 
-
 RUN  strapi new . \
     --dbclient=$DATABASE_CLIENT \
     --dbhost=$DATABASE_HOST \
@@ -13,7 +12,7 @@ RUN  strapi new . \
     --dbpassword=$DATABASE_PASSWORD \
     --dbssl=$DATABASE_SSL \  
     --no-run
-
+    
 RUN yarn add strapi-provider-upload-azure-storage 
 COPY ./config/plugins.js ./config
 RUN yarn build  
