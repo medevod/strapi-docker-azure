@@ -22,4 +22,4 @@ ENV NODE_ENV production
 
 EXPOSE 1337  
 
-CMD ["yarn", "develop"]
+CMD ["strapi", "start"]
