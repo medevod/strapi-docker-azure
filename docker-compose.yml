@@ -3,7 +3,10 @@ version: "3"
 services:
   strapi:
     container_name: strapi-azure-container
-    image: strapi/strapi-azure
+    image: evodim/strapi-azure:preview
+    volumes: 
+      - ./app/api:/srv/app/api
+      - ./app/components:/srv/app/components
     environment:
       - DATABASE_CLIENT=${DATABASE_CLIENT}
       - DATABASE_HOST=${DATABASE_HOST}

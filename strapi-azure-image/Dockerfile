@@ -1,7 +1,11 @@
 FROM strapi/base
-WORKDIR /app
+ 
 RUN yarn global add strapi
 ENV DATABASE_CLIENT "mongo"
+
+RUN mkdir /srv/app && chown 1000:1000 -R /srv/app
+WORKDIR /srv/app
+VOLUME /srv/app
 
 RUN  strapi new . \
     --dbclient=$DATABASE_CLIENT \
@@ -15,10 +19,9 @@ RUN  strapi new . \
     
 RUN yarn add strapi-provider-upload-azure-storage 
 COPY ./config/plugins.js ./config
-RUN yarn build  
-
-ENV NODE_ENV production
+RUN yarn build   
+RUN yarn strapi install documentation
 
 EXPOSE 1337  
 
-CMD ["strapi", "start"]
+CMD ["strapi", "develop"]
