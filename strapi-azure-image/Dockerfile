@@ -19,7 +19,7 @@ RUN  strapi new . \
 
 RUN yarn add strapi-provider-upload-azure-storage 
 COPY ./config/plugins.js ./config
-COPY ./config/server.js ./server
+COPY ./config/server.js ./config
 RUN yarn build   
 RUN yarn strapi install documentation
 

@@ -7,7 +7,7 @@ services:
     volumes:
       - ./app/api:/srv/app/api
       - ./app/components:/srv/app/components
-      - /app/extensions:srv/app/extensions
+      - ./app/extensions:/srv/app/extensions
     environment:
       - DATABASE_CLIENT=${DATABASE_CLIENT}
       - DATABASE_HOST=${DATABASE_HOST}
@@ -24,7 +24,7 @@ services:
       - STORAGE_DEFAULT_PATH=${STORAGE_DEFAULT_PATH}
       - STORAGE_MAX_CONCURRENT=${STORAGE_MAX_CONCURRENT}
       - SERVER_HOST=${SERVER_HOST}
-      - SERVER_PORT=${SERVER_PORT}
+      - SERVER_PORT=1338
     ports:
-      - 1337:1337
+      - 1338:1338
     restart: unless-stopped
