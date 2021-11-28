@@ -26,5 +26,5 @@ services:
       - SERVER_HOST=${SERVER_HOST}
       - SERVER_PORT=${SERVER_PORT}      
     ports:
-      - 1447:1447
+      - ${SERVER_PORT}:${SERVER_PORT}
     restart: unless-stopped
